@@ -10,14 +10,14 @@ Analysis of ISIC and MNIST datasets using Matlab and python scripts.
   upload.  
 - Download matlab code 'PCA_MNIST_github.m'
 - Change directory to downloaded files  
-- Run the code
+- Run the code (takes approx. 15 min)
 - Output: Missclassification rate and vector with prediction rate for each digits
 
 # CNN: MNIST dataset  
 
 - Download 'CNN_MNIST.py'
 - MNIST dataset is available through python and is imported directly through the code
-- Run the code
+- Run the code (takes approx. 15 min)
 - Returns: Missclassification, accuracy vs epochs and confusion matrix
 
 # PCA: ISIC dataset 
