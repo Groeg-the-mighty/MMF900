@@ -14,34 +14,40 @@ k = 10                              % Dimensions to keep
 
 
 %% --------- IMPORT AND SPLITTING DATA -------------
-
+fprintf('Reading data\n')
 data_train = csvread('mnist_train.csv'); % Import training data
 data_test = csvread('mnist_test.csv');   % Import test data 
+fprintf('Data read\n')
 
+fprintf(' Adjusting data\n')
 Xdata = data_train(1:number_examples_train, 2:end); % Save training data
 ydata = data_train(1:number_examples_train, 1)';    % Save correct digit in picture for training data
 
 xmean = mean(Xdata, 1);                             % Mean of training data
 Xdata_adj = (Xdata - xmean);                        % Adjusted for mean  
+fprintf(' Data adjusted\n')
 
 %% ------- Test data ---- 
+fprintf(' Splitting data \n')
 Xdata_n = data_test(1:n, 2:end); % Used for n = 10000
 ydata_n = data_test(1:n, 1)';    % Used for n = 10000
 Xdata_n_adj = (Xdata_n - xmean);    % Test data adjusted for mean
-
+fprintf(' Data splitted \n')
 
 %% ----------- COVARIANCE MATRIX -----------------
-
+fprintf(' Calculating covariance matrix \n')
 C = cov(Xdata_adj);                 % covariance matrix for adjusted training data
-
+fprintf(' Covariance matrix calculated \n')
 
 %% ----------- SVD ----------------
-
+fprintf(' Calculating SVD decomposition\n')
 [U,S,V] = svd(C);                   % Singular value decomposition for covariance matrix
+fprintf(' SVD decomposed \n')
 
+fprintf(' Calculating PCA matrices \n')
 PCA = Xdata_adj * V(:,1:k);         % PCA training
 PCA_n = Xdata_n_adj * V(:,1:k);     % PCA testing 
-
+fprintf(' PCA matrices calculated\n')
 
 %% -----------  RUN  -------------
  
@@ -53,6 +59,7 @@ corr_digit = zeros(10,1);      % counts correct digits
 false_digit = zeros(10,1);     % counts missclassified digits
 all_digit = zeros(10,1);       % counts all digits
 
+fprintf(' Starting prediction procedure\n')
 tic
 
 
@@ -78,3 +85,4 @@ E = sum(false_digit) / sum(all_digit);     % Miss-classification rate
 prediction = corr_digit./all_digit;   % Precision for the different classes
 
 toc
+fprintf(' Prediction procedure done\n')
