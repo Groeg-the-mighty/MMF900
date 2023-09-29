@@ -1,4 +1,6 @@
-clear all
+clear
+close all
+clc
 
 % ----- Change these ------------------------------------------------------
 K           = 5;
