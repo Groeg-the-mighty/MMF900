@@ -6,7 +6,8 @@ Analysis of ISIC and MNIST datasets using Matlab and python scripts.
 
 # PCA: MNIST dataset
 
-- Download datasets 'mnist_test.csv' and 'mnist_training.csv'
+- Download datasets 'mnist_test.csv' and 'mnist_training.csv' using the link http://makeyourownneuralnetwork.blogspot.com/2015/03/the-mnist-dataset-of-handwitten-digits.html as datasets are to large for us to 
+  upload.  
 - Download matlab code 'PCA_MNIST_github.m'
 - Run the code: The codes imports the training and testing data from the two csv files directly
 - Output: Missclassification rate and vector with prediction rate for each digits
