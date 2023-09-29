@@ -81,8 +81,8 @@ for i=1:n                      % test data size
     all_digit(ydata(number) + 1) = all_digit(ydata(number) + 1) + 1;
     y_pred_data(i) = ydata(number);
 end
-E = sum(false_digit) / sum(all_digit);     % Miss-classification rate
-prediction = corr_digit./all_digit;   % Precision for the different classes
+E = sum(false_digit) / sum(all_digit)    % Miss-classification rate
+prediction = corr_digit./all_digit   % Precision for the different classes
 
 toc
 fprintf(' Prediction procedure done\n')
