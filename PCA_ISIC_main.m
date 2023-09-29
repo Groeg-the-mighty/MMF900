@@ -2,7 +2,7 @@
 
 % ----- Change these ------------------------------------------------------
 K           = 5;
-Directory   = "C:\Users\kyhng\Desktop\Machine_learning_image_recognition";
+Directory   = "XXXX";
 Ydata_train = append(Directory, "\Ydata_train_example_case.csv");
 Ydata_test  = append(Directory, "\Ydata_test_example_case.csv");
 Xdata_train = append(Directory, "\Xdata_train_example_case.csv");
