@@ -7,7 +7,7 @@ function C = COVARIANCE(X)
 
 
 % Change to higher value if out of memory
-N_blocks = 2; % specify the number of blocks
+N_blocks = 10; % specify the number of blocks
 
 
 %% function
