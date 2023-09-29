@@ -19,10 +19,6 @@ X_test  = pd.read_csv(r'XXXX\Xdata_test_example_case.csv')
 Y_train = pd.read_csv(r'XXXX\Ydata_train_example_case.csv')
 Y_test  = pd.read_csv(r'XXXX\Ydata_test_example_case.csv')
 
-#%% Data division into testing and training
-
-#x_train, x_test, y_train, y_test = train_test_split(X.to_numpy(),Y['Var2'].to_numpy(), test_size=5000, train_size=32648)
-
 #%% data-loading and formatting
 
 img_rows, img_cols = 100, 150
@@ -46,30 +42,6 @@ x_test = x_test.astype('float32')
 
 x_train /= 255
 x_test /= 255
-
-#%% re-sample to fix imbalance in training data
-
-# from random import choices, shuffle
-
-# print(Counter(y_train))
-
-# cancer = np.where(y_train == 1)[0]
-# non_cancer = list(range(len(y_train)))
-
-# for i in cancer:
-#     non_cancer.remove(i)
-
-
-# sample_cancer = choices(cancer, k=int(len(y_train)/2))
-# sample_non_cancer = choices(non_cancer, k=int(len(y_train)/2))
-
-# sample = sample_non_cancer + sample_cancer
-# shuffle(sample)
-
-# x_train_balanced = x_train[sample]
-# y_train_balanced = y_train[sample].reshape(-1)
-
-# print(Counter(y_train_balanced))
 
 # %%  CNN 
 
@@ -96,8 +68,6 @@ model.add(Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy',
               optimizer='SGD',
               metrics=['accuracy'])
-
-#model.save_weights('inital.h5')
 
 fit_info = model.fit(x_train, y_train,
            batch_size=batch_size,
@@ -131,7 +101,7 @@ miss_classification = 1 - precision_recall_fscore_support(y_test, np.round(y_pre
 print('Miss-clasification rate =', miss_classification)
 
 #%% summarize history for accuracy
-
+plt.figure()
 plt.plot(fit_info.history['accuracy'])
 
 plt.plot(fit_info.history['val_accuracy'])
