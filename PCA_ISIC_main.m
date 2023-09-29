@@ -12,11 +12,6 @@ plot_if     = 0;                                                % 1 for plot, 0 
 
 %%
 fprintf('\n Loading data... '); tic
-% Xdata_all  = readmatrix(X_directoy)/255;  % normalized to reduce computational loss
-% ydata_all  = readmatrix(y_directory);
-% fprintf('Data loaded \n'); toc 
-
-% fprintf('\n Spliting data... '); tic
 
 Xdata      = readmatrix(Xdata_train)/255;
 ydata      = readmatrix(Ydata_train);
